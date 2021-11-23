@@ -9,3 +9,7 @@ Fairly straightforward wrapper for the Canada Post API. Handles basic rating, cr
 # Documentation
 
 [API Documentation](https://github.com/t3rminus/canada-post/blob/master/API.md) is available [here](https://github.com/t3rminus/canada-post/blob/master/API.md).
+
+# Fork
+
+This fork add the `.getShipmentReceipt(id)` api call. Version aligned with original module.

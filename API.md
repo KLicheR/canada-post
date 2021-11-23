@@ -26,6 +26,7 @@ _All_ Candada Post API methods return a promise. Old-style callbacks are not sup
     - [`.getShipments(from, to)` -> `Promise`](#getshipmentsfrom-to---promise)
     - [`.getShipment(id)` -> `Promise`](#getshipmentid---promise)
     - [`.getShipmentDetails(id)` -> `Promise`](#getshipmentdetailsid---promise)
+    - [`.getShipmentReceipt(id)` -> `Promise`](#getshipmentreceiptid---promise)
 
     - *(additional documentation coming soon)*
 
@@ -266,3 +267,56 @@ Example:
         - `height` (Number) - Shortest dimension in centimeters, to one decimal point
     - `preferences` (Object) - Your shipment preferences
       - `showPackingInstructions` (String) - true/false for whether to show packing instructions on the generated shipping label
+
+***
+
+##### `.getShipmentReceipt(id)` -> `Promise`
+Gets the label charges and settlement information of a shipment.
+
+See: https://www.canadapost-postescanada.ca/info/mc/business/productsservices/developers/services/onestepshipping/shipmentreceipt.jsf
+
+Arguments:
+- `id` (String) - The id of the shipment to look up
+
+Returns: `Promise`
+Resolves: `Object` - An object that includes receipt information.
+
+Example:
+
+- `nonContractShipmentReceipt`
+  - `finalShippingPoint`
+  - `trackingPin`
+  - `refundRequestInfo`
+    - `serviceTicketId`
+    - `serviceTicketDate`
+  - `deliverySpec`
+    - `serviceCode`
+    - `sender`
+      - `name`
+      - `company`
+      - `contactPhone`
+      - `addressDetails`
+        - `addressLine1`
+        - `addressLine2`
+        - `city`
+        - `provState`
+        - `postalZipCode`
+    - `destination`
+      - `name`
+      - `company`
+      - `clientVoiceNumber`
+      - `addressDetails`
+        - `addressLine1`
+        - `addressLine2`
+        - `city`
+        - `provState`
+        - `postalZipCode`
+        - `countryCode`
+    - `parcelCharacteristics`
+      - `weight`
+      - `dimensions`
+        - `length`
+        - `width`
+        - `height`
+    - `preferences`
+      - `showPackingInstructions`
